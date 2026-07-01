@@ -1,0 +1,327 @@
+/* ══════════════════════════════════════════
+   CompressorOil_types.css  |  Rohoboth — Compressor Oil Types Page
+   Mirrors Coolinggas_types.css exactly
+══════════════════════════════════════════ */
+
+* { box-sizing: border-box; }
+
+.co-section {
+  width: 100%;
+  padding: 56px 40px 72px;
+  background: #f0f4f8;
+  font-family: 'Segoe UI', 'Inter', sans-serif;
+}
+
+/* ── Back Button ── */
+.co-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 32px;
+  padding: 9px 20px;
+  border-radius: 50px;
+  background: #fff;
+  border: 1.5px solid #d0e4f5;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1d9e75;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  animation: coFadeDown 0.5s ease both;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.co-back-btn svg { width: 16px; height: 16px; }
+.co-back-btn:hover {
+  background: #1d9e75;
+  color: #fff;
+  border-color: #1d9e75;
+  transform: translateX(-4px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(29,158,117,0.28);
+}
+
+/* ── Header ── */
+.co-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.co-eyebrow {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1d9e75;
+  animation: coFadeDown 0.6s ease both;
+}
+.co-title {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0a2540;
+  letter-spacing: -0.5px;
+  animation: coFadeDown 0.6s 0.08s ease both;
+}
+.co-sub {
+  margin: 0;
+  font-size: 14px;
+  color: #6b8aaa;
+  font-weight: 500;
+  animation: coFadeDown 0.6s 0.16s ease both;
+}
+
+@keyframes coFadeDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════════
+   TOP GRID
+════════════════════════════════ */
+.co-grid {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+.co-grid--center {
+  justify-content: center;
+}
+
+.co-jcard {
+  width: 210px;
+  border-radius: 22px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(60px) scale(0.75) rotate(-3deg);
+  transition:
+    opacity 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--di) * 0.12s);
+}
+.co-jcard--in {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+}
+.co-jcard:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.co-jcard-label {
+  margin: 0 0 10px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8fa5bc;
+}
+
+.co-jcard-imgwrap {
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+.co-jcard:hover .co-jcard-imgwrap {
+  transform: scale(1.05);
+  box-shadow:
+    0 20px 48px rgba(29,158,117,0.18),
+    0 0 0 3px rgba(29,158,117,0.12);
+}
+
+.co-jcard-img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  animation: coFloat 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--fi) * 0.45s);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes coFloat {
+  0%   { transform: translateY(0px)   rotate(0deg)    scale(1);    }
+  25%  { transform: translateY(-8px)  rotate(1.5deg)  scale(1.03); }
+  50%  { transform: translateY(-12px) rotate(0deg)    scale(1.05); }
+  75%  { transform: translateY(-6px)  rotate(-1.5deg) scale(1.02); }
+  100% { transform: translateY(0px)   rotate(0deg)    scale(1);    }
+}
+.co-jcard:hover .co-jcard-img {
+  animation: none;
+  transform: scale(1.22) translateY(-8px) rotate(6deg);
+  filter: drop-shadow(0 14px 28px rgba(29,158,117,0.25));
+}
+
+.co-jcard-name {
+  margin: 14px 0 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0a2540;
+  text-align: center;
+  letter-spacing: -0.1px;
+}
+
+/* ── View Button ── */
+.co-viewbtn {
+  margin-top: 10px;
+  padding: 7px 18px;
+  border-radius: 50px;
+  background: #fff;
+  border: 1.5px solid #d0e4f5;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1d9e75;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.co-viewbtn:hover {
+  background: #1d9e75;
+  color: #fff;
+  border-color: #1d9e75;
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px rgba(29,158,117,0.28);
+}
+.co-viewbtn--sm {
+  margin-top: 9px;
+  padding: 6px 14px;
+  font-size: 10.5px;
+}
+
+/* ════════════════════════════════
+   SMOOTH INFINITE SCROLL ROW
+════════════════════════════════ */
+.co-scroll-outer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 44px;
+}
+
+.co-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #d4e5f7;
+  background: #fff;
+  color: #c8d8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+.co-arrow svg { width: 20px; height: 20px; }
+.co-arrow--on {
+  border-color: #1d9e75;
+  color: #1d9e75;
+  box-shadow: 0 4px 14px rgba(29,158,117,0.18);
+}
+.co-arrow--on:hover {
+  background: #1d9e75;
+  color: #fff;
+  transform: scale(1.12);
+  box-shadow: 0 8px 24px rgba(29,158,117,0.35);
+}
+.co-arrow--on:active { transform: scale(0.95); }
+
+.co-track-outer {
+  flex: 1;
+  overflow: hidden;
+  padding: 14px 0 22px;
+}
+.co-track {
+  display: flex;
+  gap: 18px;
+  will-change: transform;
+  width: max-content;
+}
+
+/* ── Scroll cards ── */
+.co-scard {
+  width: 210px;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.co-scard:hover { transform: translateY(-10px); }
+
+.co-scard-label {
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8fa5bc;
+}
+.co-scard-imgwrap {
+  width: 100%;
+  height: 185px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    box-shadow 0.32s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.co-scard:hover .co-scard-imgwrap {
+  box-shadow:
+    0 18px 42px rgba(29,158,117,0.16),
+    0 0 0 3px rgba(29,158,117,0.10);
+  transform: scale(1.04);
+}
+.co-scard-img {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  animation: coFloat 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--fi) * 0.45s);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.10));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.co-scard:hover .co-scard-img {
+  animation: none;
+  transform: scale(1.2) translateY(-8px) rotate(5deg);
+  filter: drop-shadow(0 12px 24px rgba(29,158,117,0.22));
+}
+.co-scard-name {
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0a2540;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .co-section { padding: 40px 16px 56px; }
+  .co-grid { flex-wrap: wrap; }
+  .co-jcard { width: 160px; }
+  .co-jcard-imgwrap { height: 160px; }
+  .co-jcard-img { width: 100px; height: 100px; }
+  .co-scard { width: 180px; }
+}
+@media (max-width: 540px) {
+  .co-title { font-size: 24px; }
+  .co-jcard { width: 140px; }
+  .co-scard { width: 160px; }
+}

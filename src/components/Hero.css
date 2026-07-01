@@ -1,0 +1,717 @@
+/* ═══════════════════════════════════════════════════════
+   HERO — Rehoboth Refrigeration Hub  |  Premium Edition
+═══════════════════════════════════════════════════════ */
+
+/* Google Font import — Space Grotesk */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap');
+
+/* ══ CSS Custom Properties ══ */
+:root {
+  --gold-deep:    #8c6b09;
+  --gold-mid:     #c9971c;
+  --gold-bright:  #d4af37;
+  --gold-light:   #ffe27a;
+  --gold-pale:    #fff4c2;
+  --cream-bg:     #fdfcf8;
+  --cream-mid:    #f4efe7;
+  --cream-deep:   #ece4d8;
+  --red-brand:    #b11f1f;
+  --red-dark:     #8a1515;
+  --green-cta:    #0f7a46;
+  --green-dark:   #0a5d35;
+  --text-dark:    #1a1209;
+  --text-mid:     #3d3020;
+  --text-muted:   #6b5d4f;
+  --shadow-gold:  rgba(212,175,55,.18);
+  --shadow-dark:  rgba(10,6,0,.22);
+}
+
+/* ══ Dark theme tokens ══ */
+body.dark-theme {
+  --cream-bg:    #0d1117;
+  --cream-mid:   #131b24;
+  --cream-deep:  #0f172a;
+  --text-dark:   #f1e9d6;
+  --text-mid:    #d4c4a8;
+  --text-muted:  #8a7a6a;
+  --shadow-gold: rgba(212,175,55,.12);
+  --shadow-dark: rgba(0,0,0,.45);
+}
+
+/* ═══════════════════════════
+   HERO BASE
+═══════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 70% 60% at -5% 10%, rgba(212,175,55,.13) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 105% 90%, rgba(212,175,55,.07) 0%, transparent 55%),
+    linear-gradient(158deg, var(--cream-bg) 0%, var(--cream-mid) 50%, var(--cream-deep) 100%);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body.dark-theme .hero {
+  background:
+    radial-gradient(ellipse 70% 60% at -5% 10%, rgba(212,175,55,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 105% 90%, rgba(212,175,55,.04) 0%, transparent 55%),
+    linear-gradient(158deg, #0d1117 0%, #0f1923 50%, #0c1520 100%);
+}
+
+/* ── Ambient floating orb ── */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, #d4af37 0%, #a07d10 40%, transparent 70%);
+  filter: blur(120px);
+  opacity: .18;
+  border-radius: 50%;
+  top: -200px;
+  left: -180px;
+  animation: floatOrb 14s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.dark-theme .hero::before { opacity: .12; }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #d4af37 0%, transparent 65%);
+  filter: blur(100px);
+  opacity: .08;
+  border-radius: 50%;
+  bottom: -100px;
+  right: 30%;
+  animation: floatOrb 18s ease-in-out infinite alternate-reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes floatOrb {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(60px, 50px) scale(1.12); }
+}
+
+/* ══ Grid layout — DESKTOP ══ */
+.hero-content {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  grid-template-rows: none;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════
+   LEFT — Text column
+══════════════════════════ */
+.hero-left {
+  padding: 0 48px 0 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+/* ── Eyebrow tag ── */
+.hero-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeSlideDown 0.6s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.hero-tag::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--gold-bright), var(--gold-light));
+  flex-shrink: 0;
+}
+
+body.dark-theme .hero-tag { color: #8a9ab5; }
+
+/* ── H1 wrapper ── */
+.hero-left h1 {
+  margin: 0 0 24px 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 900;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* ══════════════════════════
+   GOLD BRAND — "REHOBOTH"
+══════════════════════════ */
+.hero-brand {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  isolation: isolate;
+  width: fit-content;
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+
+  background: linear-gradient(
+    100deg,
+    var(--gold-deep)  0%,
+    var(--gold-mid)   22%,
+    var(--gold-bright) 40%,
+    var(--gold-light)  50%,
+    var(--gold-bright) 60%,
+    var(--gold-mid)   78%,
+    var(--gold-deep)  100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: goldFlow 6s linear infinite;
+  filter: drop-shadow(0 4px 14px rgba(180,140,20,.35));
+}
+
+@keyframes goldFlow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 220% 50%; }
+}
+
+.hero-brand::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255,255,255,.75) 50%,
+    transparent 80%
+  );
+  transform: translateX(-200%) skewX(-18deg);
+  animation: shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-200%) skewX(-18deg); }
+  60%  { transform: translateX(200%) skewX(-18deg); }
+  100% { transform: translateX(200%) skewX(-18deg); }
+}
+
+.hero-brand .letter {
+  display: inline-block;
+  overflow: hidden;
+  opacity: 0;
+  animation: letterRise 0.1s cubic-bezier(.22,.68,0,1.2) forwards;
+  background: inherit;
+  background-size: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-brand .letter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255,255,255,.7) 50%,
+    transparent 65%
+  );
+  transform: translateX(-150%);
+  animation: shimmerLetter 3s infinite;
+}
+
+@keyframes shimmerLetter {
+  0%   { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
+
+/* ══════════════════════════
+   RED SUBTITLE — "REFRIGERATION HUB"
+══════════════════════════ */
+.hero-sub {
+  display: block;
+  font-size: clamp(1.6rem, 3.2vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    100deg,
+    var(--red-dark)  0%,
+    var(--red-brand) 45%,
+    #d42525         70%,
+    var(--red-brand) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 3px 10px rgba(177,31,31,.22));
+}
+
+body.dark-theme .hero-sub {
+  background: linear-gradient(100deg, #c43030, #e84040, #ff5555, #e84040, #c43030);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 3px 12px rgba(255,60,60,.25));
+}
+
+.hero-sub .letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letterRise 0.1s cubic-bezier(.22,.68,0,1.2) forwards;
+  background: inherit;
+  background-size: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@keyframes letterRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(.92);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ── Gold divider ── */
+.hero-divider {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-bright), var(--gold-light), transparent);
+  margin: 0 0 22px 0;
+  border-radius: 2px;
+  opacity: 0;
+  animation: fadeSlideDown 0.5s ease forwards;
+  animation-delay: 1.3s;
+}
+
+/* ── Paragraph ── */
+.hero-left p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.72;
+  max-width: 430px;
+  margin: 0 0 32px 0;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeSlideUp 0.55s ease forwards;
+  animation-delay: 1.45s;
+}
+
+body.dark-theme .hero-left p { color: #9aabb8; }
+
+/* ── Buttons ── */
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeSlideUp 0.55s ease forwards;
+  animation-delay: 1.6s;
+}
+
+/* Primary — green CTA */
+.primary-btn {
+  position: relative;
+  background: linear-gradient(135deg, var(--green-cta) 0%, #0d6b3d 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  font-size: 0.87rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow:
+    0 8px 24px rgba(15,122,70,.3),
+    0 2px 6px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.18) 0%, transparent 60%);
+  border-radius: 50px;
+  pointer-events: none;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 36px rgba(15,122,70,.38),
+    0 4px 10px rgba(0,0,0,.15),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.primary-btn:active { transform: translateY(-1px); }
+
+/* Secondary — outline */
+.secondary-btn {
+  position: relative;
+  text-decoration: none;
+  background: transparent;
+  color: #1a5c2e;
+  border: 1.5px solid rgba(26,92,46,.5);
+  padding: 13px 30px;
+  font-size: 0.87rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.22s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+}
+
+body.dark-theme .secondary-btn {
+  color: #5aad7a;
+  border-color: rgba(90,173,122,.35);
+}
+
+.secondary-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(26,92,46,0);
+  transition: background 0.22s ease;
+  border-radius: 50px;
+}
+
+.secondary-btn:hover {
+  border-color: rgba(26,92,46,.9);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(15,92,46,.22);
+}
+
+.secondary-btn:hover::before { background: rgba(26,92,46,.9); }
+.secondary-btn:hover span    { position: relative; z-index: 1; }
+
+/* Tooltips */
+.primary-btn .tooltip,
+.secondary-btn .tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10,6,0,.88);
+  color: #f1e9d6;
+  font-size: 0.70rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 99;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(6px);
+}
+
+.primary-btn .tooltip::after,
+.secondary-btn .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(10,6,0,.88);
+}
+
+.primary-btn:hover .tooltip,
+.secondary-btn:hover .tooltip { display: block; }
+
+/* ══ Shared entrance animations ══ */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════
+   RIGHT — Image panel
+══════════════════════════ */
+.hero-center {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  border-radius: 72px 0 0 72px;
+  box-shadow:
+    inset 2px 0 0 rgba(212,175,55,.12),
+    -20px 0 60px rgba(212,175,55,.06);
+}
+
+.hero-image-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  will-change: transform;
+  animation: heroZoom 20s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1) translateY(0); }
+  to   { transform: scale(1.09) translateY(-12px); }
+}
+
+.panel-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(250,248,241,.85) 0%,
+    rgba(250,248,241,.35) 18%,
+    transparent 45%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.dark-theme .panel-vignette {
+  background: linear-gradient(
+    to right,
+    #0f1923                       0%,
+    rgba(15,25,35, 0.78)         15%,
+    rgba(15,25,35, 0.28)         35%,
+    rgba(15,25,35, 0.05)         52%,
+    transparent                   65%
+  );
+}
+
+.hero-center::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.18) 0%,
+    transparent 28%,
+    transparent 72%,
+    rgba(0,0,0,.22) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ══════════════════════════
+   RESPONSIVE — TABLET (≤960px)
+══════════════════════════ */
+@media (max-width: 960px) {
+  .hero {
+  min-height: 100vh;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+  /* Stack: image on top, text below */
+ 
+    .hero-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;  /* ← rows order மாத்துங்க */
+    align-items: start;
+    min-height: 100vh;
+  }
+
+  /* Image goes first (row 1) */
+ 
+   .hero-center {
+    order: 2;   /* image கீழ */
+    height: 45vh;
+    min-height: 260px;
+    border-radius: 48px 48px 0 0;  /* ← border-radius மேலே வரும்போது மாத்தணும் */
+    box-shadow: 0 -10px 40px rgba(212,175,55,.10);
+  }
+
+ .panel-vignette {
+    background: linear-gradient(
+      to top,
+      rgba(250,248,241,.85) 0%,
+      rgba(250,248,241,.35) 18%,
+      transparent 45%
+    );
+  }
+  body.dark-theme .panel-vignette {
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(15,25,35,.6) 80%,
+      rgba(15,25,35,.95) 100%
+    );
+  }
+
+  /* Text below image (row 2) */
+
+   .hero-left {
+    order: 1;   /* text முதல்ல */
+    padding:  110px 28px 32px 28px; 
+    height: auto;
+      min-height: unset;  
+    justify-content: flex-start;
+  }
+}
+
+/* ══════════════════════════
+   RESPONSIVE — MOBILE (≤480px)
+══════════════════════════ */
+@media (max-width: 480px) {
+  .hero-content {
+    grid-template-rows:auto auto ;
+  }
+
+  .hero-center {
+     order: 2;
+    height: 38vh;
+    min-height: 220px;
+    border-radius: 32px 32px 0 0;
+  }
+
+  .hero-left {
+  
+      order: 1;
+       padding: 100px 20px 32px 20px; 
+  }
+
+  /* Scale down fonts further on small screens */
+  .hero-brand {
+    font-size: clamp(2.4rem, 11vw, 3.2rem);
+  }
+
+  .hero-sub {
+    font-size: clamp(1.2rem, 6.5vw, 1.8rem);
+  }
+
+  .hero-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-left p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    text-align: center;
+    padding: 15px 24px;
+    font-size: 0.85rem;
+  }
+
+  .hero-divider {
+    margin-bottom: 16px;
+  }
+}
+
+/* ══════════════════════════
+   RESPONSIVE — VERY SMALL (≤360px)
+══════════════════════════ */
+@media (max-width: 360px) {
+  .hero-brand {
+    font-size: clamp(2rem, 12vw, 2.6rem);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 7vw, 1.4rem);
+  }
+
+  .hero-center {
+    height: 32vh;
+    min-height: 180px;
+  }
+}
+
+/* ══ Reduced motion ══ */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .hero-brand,
+  .hero-brand::after,
+  .hero-main-image {
+    animation: none;
+  }
+
+  .hero-brand .letter,
+  .hero-sub .letter {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .hero-tag,
+  .hero-divider,
+  .hero-left p,
+  .hero-buttons {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

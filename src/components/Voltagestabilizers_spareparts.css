@@ -1,0 +1,202 @@
+/* ══════════════════════════════════════════
+   Voltagestabilizers_spareparts.css  |  Rohoboth
+   Mirrors Ac_spareparts.css exactly
+══════════════════════════════════════════ */
+
+* { box-sizing: border-box; }
+
+.vsp-section {
+  width: 100%;
+  padding: 40px 40px 72px;
+  background: #f0f4f8;
+  font-family: 'Segoe UI', 'Inter', sans-serif;
+}
+
+.vsp-back-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-bottom: 28px; padding: 9px 20px; border-radius: 50px;
+  background: #fff; border: 1.5px solid #d0e4f5;
+  font-size: 13px; font-weight: 700; color: #1d9e75;
+  cursor: pointer; letter-spacing: 0.04em;
+  animation: vspFadeDown 0.5s ease both;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.vsp-back-btn svg { width: 16px; height: 16px; }
+.vsp-back-btn:hover {
+  background: #1d9e75; color: #fff; border-color: #1d9e75;
+  transform: translateX(-4px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(29,158,117,0.28);
+}
+
+.vsp-header { text-align: center; margin-bottom: 48px; }
+.vsp-eyebrow {
+  margin: 0 0 6px; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase; color: #1d9e75;
+  animation: vspFadeDown 0.6s ease both;
+}
+.vsp-title {
+  margin: 0 0 8px; font-size: 32px; font-weight: 900;
+  color: #0a2540; letter-spacing: -0.5px;
+  animation: vspFadeDown 0.6s 0.08s ease both;
+}
+.vsp-sub {
+  margin: 0; font-size: 14px; color: #6b8aaa; font-weight: 500;
+  animation: vspFadeDown 0.6s 0.16s ease both;
+}
+
+@keyframes vspFadeDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.vsp-section-block { margin-bottom: 64px; }
+.vsp-section-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 28px; padding-bottom: 12px;
+  border-bottom: 2px solid #e0eaf5;
+}
+.vsp-section-eye {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #1d9e75; background: #e6f7f1;
+  padding: 4px 12px; border-radius: 50px;
+}
+.vsp-section-title { margin: 0; font-size: 20px; font-weight: 900; color: #0a2540; }
+
+.vsp-grid {
+  display: flex; justify-content: center;
+  gap: 22px; margin-bottom: 22px; flex-wrap: wrap;
+}
+
+.vsp-jcard {
+  width: 210px; border-radius: 22px;
+  background: transparent; border: none; padding: 0;
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer; opacity: 0;
+  transform: translateY(60px) scale(0.75) rotate(-3deg);
+  transition:
+    opacity 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--di) * 0.07s);
+}
+.vsp-jcard--in { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+.vsp-jcard:hover { transform: translateY(-10px) scale(1.03); }
+
+.vsp-jcard-label {
+  margin: 0 0 10px; font-size: 10.5px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #8fa5bc;
+}
+
+.vsp-jcard-imgwrap {
+  width: 100%; height: 185px; border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+.vsp-jcard:hover .vsp-jcard-imgwrap {
+  transform: scale(1.05);
+  box-shadow: 0 20px 48px rgba(29,158,117,0.18), 0 0 0 3px rgba(29,158,117,0.12);
+}
+
+.vsp-jcard-img {
+  width: 120px; height: 120px; object-fit: contain;
+  animation: vspFloat 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--fi) * 0.45s);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes vspFloat {
+  0%   { transform: translateY(0px)   rotate(0deg)    scale(1);    }
+  25%  { transform: translateY(-8px)  rotate(1.5deg)  scale(1.03); }
+  50%  { transform: translateY(-12px) rotate(0deg)    scale(1.05); }
+  75%  { transform: translateY(-6px)  rotate(-1.5deg) scale(1.02); }
+  100% { transform: translateY(0px)   rotate(0deg)    scale(1);    }
+}
+.vsp-jcard:hover .vsp-jcard-img {
+  animation: none;
+  transform: scale(1.22) translateY(-8px) rotate(6deg);
+  filter: drop-shadow(0 14px 28px rgba(29,158,117,0.25));
+}
+
+.vsp-jcard-name {
+  margin: 12px 0 0; font-size: 14px; font-weight: 800;
+  color: #0a2540; text-align: center; letter-spacing: -0.1px;
+}
+
+.vsp-viewbtn {
+  margin-top: 10px; padding: 7px 22px; border-radius: 50px;
+  background: #fff; border: 1.5px solid #d0e4f5;
+  font-size: 12px; font-weight: 700; color: #1d9e75;
+  cursor: pointer; letter-spacing: 0.06em; white-space: nowrap;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.vsp-viewbtn:hover {
+  background: #1d9e75; color: #fff; border-color: #1d9e75;
+  transform: scale(1.07); box-shadow: 0 6px 18px rgba(29,158,117,0.28);
+}
+.vsp-viewbtn--sm { margin-top: 9px; padding: 6px 16px; font-size: 11px; }
+
+.vsp-scroll-outer { display: flex; align-items: center; gap: 10px; margin-top: 28px; }
+
+.vsp-arrow {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+  border: 1.5px solid #d4e5f7; background: #fff; color: #c8d8e8;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.25s ease; padding: 0;
+}
+.vsp-arrow svg { width: 20px; height: 20px; }
+.vsp-arrow--on { border-color: #1d9e75; color: #1d9e75; box-shadow: 0 4px 14px rgba(29,158,117,0.18); }
+.vsp-arrow--on:hover {
+  background: #1d9e75; color: #fff; transform: scale(1.12);
+  box-shadow: 0 8px 24px rgba(29,158,117,0.35);
+}
+.vsp-arrow--on:active { transform: scale(0.95); }
+
+.vsp-track-outer { flex: 1; overflow: hidden; padding: 14px 0 22px; }
+.vsp-track { display: flex; gap: 18px; will-change: transform; width: max-content; }
+
+.vsp-scard {
+  width: 200px; flex-shrink: 0; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.vsp-scard:hover { transform: translateY(-10px); }
+
+.vsp-scard-label {
+  margin: 0 0 8px; font-size: 10px; font-weight: 800;
+  letter-spacing: 0.15em; text-transform: uppercase; color: #8fa5bc;
+}
+.vsp-scard-imgwrap {
+  width: 100%; height: 170px; border-radius: 18px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  transition: box-shadow 0.32s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.vsp-scard:hover .vsp-scard-imgwrap {
+  box-shadow: 0 18px 42px rgba(29,158,117,0.16), 0 0 0 3px rgba(29,158,117,0.10);
+  transform: scale(1.04);
+}
+.vsp-scard-img {
+  width: 105px; height: 105px; object-fit: contain;
+  animation: vspFloat 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--fi) * 0.45s);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.10));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.vsp-scard:hover .vsp-scard-img {
+  animation: none;
+  transform: scale(1.2) translateY(-8px) rotate(5deg);
+  filter: drop-shadow(0 12px 24px rgba(29,158,117,0.22));
+}
+.vsp-scard-name { margin: 11px 0 0; font-size: 13px; font-weight: 800; color: #0a2540; text-align: center; }
+
+@media (max-width: 900px) {
+  .vsp-section { padding: 32px 16px 56px; }
+  .vsp-jcard { width: 160px; }
+  .vsp-jcard-imgwrap { height: 155px; }
+  .vsp-jcard-img { width: 95px; height: 95px; }
+  .vsp-scard { width: 175px; }
+}
+@media (max-width: 540px) {
+  .vsp-title { font-size: 24px; }
+  .vsp-jcard { width: 140px; }
+  .vsp-scard { width: 155px; }
+}

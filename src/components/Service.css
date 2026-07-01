@@ -1,0 +1,464 @@
+/* =====================================================
+   HarwinService.css  —  Premium Cinematic Theme
+   Palette: Ink Black · Warm Gold · Ice Blue
+   ===================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Serif+Tamil:wght@700;900&display=swap");
+
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --hs-ink:       #0f172a;
+  --hs-surface:   #1e293b;
+  --hs-card-bg: rgba(255, 255, 255, 0.08);
+    --hs-card-bdr: rgba(255, 255, 255, 0.12);
+  --hs-gold:       #f59e0b;
+  --hs-gold-lit:    #fbbf24;
+  --hs-ice:        #00C8F0;
+  --hs-text:       #f8fafc;
+  --hs-muted:  #cbd5e1;
+  --hs-muted-dim:  #94a3b8;
+}
+
+body.dark-theme {
+  --hs-ink: #0f172a;
+  --hs-surface: #1e293b;
+
+  --hs-card-bg: rgba(255,255,255,0.08);
+  --hs-card-bdr: rgba(255,255,255,0.12);
+
+  --hs-text: #f8fafc;
+  --hs-muted: #cbd5e1;
+  --hs-muted-dim: #94a3b8;
+}
+
+body.light-theme {
+  --hs-ink: #f8fafc;
+  --hs-surface: #ffffff;
+
+  --hs-card-bg: rgba(255,255,255,0.9);
+  --hs-card-bdr: rgba(0,0,0,0.08);
+
+  --hs-text: #0f172a;
+  --hs-muted: #475569;
+  --hs-muted-dim: #64748b;
+}
+
+/* ── ROOT ───────────────────────────────────────────── */
+.hs-root {
+  position: relative;
+   background:
+    linear-gradient(
+      135deg,
+      var(--hs-ink) 0%,
+      var(--hs-surface) 50%,
+      var(--hs-ink) 100%
+    );
+  padding: 8rem 1.5rem 7rem;
+  overflow: hidden;
+  font-family: "Noto Sans Tamil", system-ui, sans-serif;
+  isolation: isolate;
+}
+
+/* ── FILM GRAIN ─────────────────────────────────────── */
+.hs-grain {
+  position: absolute;
+  inset: -100px;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  animation: hs-grain 9s steps(12) infinite;
+}
+
+@keyframes hs-grain {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-1%, -2%); }
+  20%  { transform: translate(2%, 1%); }
+  30%  { transform: translate(-2%, 2%); }
+  40%  { transform: translate(1%, -1%); }
+  50%  { transform: translate(-1%, 2%); }
+  60%  { transform: translate(2%, -2%); }
+  70%  { transform: translate(-1%, 1%); }
+  80%  { transform: translate(1%, -1%); }
+  90%  { transform: translate(-2%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ── AMBIENT LIGHT ──────────────────────────────────── */
+.hs-bg-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 75% 55% at 15% 5%,
+      rgba(20, 80, 200, 0.16) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 45% at 85% 95%,
+      rgba(180, 130, 20, 0.11) 0%, transparent 60%);
+}
+
+/* ── CONTENT WRAPPER ────────────────────────────────── */
+.hs-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── SCROLL ANIMATION ───────────────────────────────── */
+.hs-anim {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hs-anim.hs-visible { opacity: 1; transform: translateY(0); }
+
+.hs-delay-1 { transition-delay: 0.10s; }
+.hs-delay-2 { transition-delay: 0.20s; }
+.hs-delay-3 { transition-delay: 0.30s; }
+.hs-delay-4 { transition-delay: 0.40s; }
+.hs-delay-5 { transition-delay: 0.50s; }
+
+/* ── HEADER ─────────────────────────────────────────── */
+.hs-header {
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+
+/* film-title eyebrow */
+.hs-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hs-eyebrow-rule {
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hs-gold), transparent);
+  opacity: 0.6;
+}
+
+.hs-eyebrow-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hs-gold);
+  white-space: nowrap;
+}
+
+/* brand name */
+.hs-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 1.5rem;
+}
+
+.hs-brand {
+  font-family: "Noto Serif Tamil", Georgia, serif;
+  font-size: clamp(3.2rem, 9vw, 5.8rem);
+  font-weight: 900;
+  color: var(--hs-text);
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+
+.hs-title-sub {
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  font-weight: 400;
+  color: var(--hs-muted);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hs-sub {
+  font-size: 1rem;
+  color: var(--hs-muted);
+  line-height: 2.1;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+/* ── LETTER STAGGER ANIMATION (Hero.jsx pattern) ───── */
+.hs-title .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: hs-letter-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hs-letter-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── TRUST ROW ──────────────────────────────────────── */
+.hs-trust {
+  display: flex;
+  margin-bottom: 3rem;
+  border: 1px solid var(--hs-card-bdr);
+  border-radius: 16px;
+  background: var(--hs-card-bg);
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
+.hs-trust-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.6rem 1rem;
+  border-right: 1px solid var(--hs-card-bdr);
+  gap: 0.4rem;
+  transition: background 0.3s ease;
+}
+
+.hs-trust-item:last-child { border-right: none; }
+.hs-trust-item:hover { background: rgba(200, 146, 42, 0.04); }
+
+.hs-trust-num {
+  font-family: "Noto Serif Tamil", serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--hs-gold);
+  line-height: 1;
+}
+
+.hs-trust-label {
+  font-size: 0.76rem;
+  color: var(--hs-muted);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+/* ── SERVICE CARDS ──────────────────────────────────── */
+.hs-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.hs-card {
+  position: relative;
+  background: var(--hs-card-bg);
+  backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--hs-card-bdr);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: default;
+  transition:
+    transform    0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s ease,
+    box-shadow   0.45s ease;
+}
+
+.hs-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(200, 146, 42, 0.28);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(200, 146, 42, 0.1);
+}
+
+/* gold reveal bar — the signature element */
+.hs-card-topbar {
+  height: 2px;
+  background: linear-gradient(90deg, var(--hs-gold), var(--hs-gold-lit), transparent);
+  width: 0;
+  transition: width 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+}
+
+.hs-card:hover .hs-card-topbar { width: 100%; }
+
+.hs-card-inner {
+  padding: 2rem 1.8rem 2rem;
+}
+
+.hs-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  background: rgba(200, 146, 42, 0.07);
+  border: 1px solid rgba(200, 146, 42, 0.14);
+  border-radius: 14px;
+  margin-bottom: 1.1rem;
+}
+
+.hs-icon { font-size: 1.75rem; line-height: 1; }
+
+.hs-badge {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--hs-gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
+}
+
+.hs-card-title {
+  font-family: "Noto Serif Tamil", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--hs-text);
+  margin: 0 0 0.7rem;
+  line-height: 1.3;
+}
+
+.hs-card-desc {
+  font-size: 0.92rem;
+  color: var(--hs-muted);
+  line-height: 1.95;
+  margin: 0;
+}
+
+/* ── CTA ────────────────────────────────────────────── */
+.hs-cta { text-align: center; }
+
+.hs-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hs-gold);
+  border: none;
+  border-radius: 12px;
+  padding: 1.05rem 3.2rem;
+  cursor: pointer;
+  overflow: hidden;
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #08080E;
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 4px 32px rgba(200, 146, 42, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  transition:
+    transform    0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow   0.3s ease,
+    background   0.3s ease;
+}
+
+.hs-btn:hover {
+  background: var(--hs-gold-lit);
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 50px rgba(200, 146, 42, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.15) inset;
+}
+
+.hs-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 18px rgba(200, 146, 42, 0.2);
+}
+
+.hs-btn-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hs-btn-icon { font-size: 1.1rem; }
+
+/* shine sweep on hover */
+.hs-btn-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  background-position: -150% 0;
+  transition: background-position 0.65s ease;
+}
+
+.hs-btn:hover .hs-btn-shine {
+  background-position: 250% 0;
+}
+
+.hs-cta-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--hs-muted-dim);
+  letter-spacing: 0.06em;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hs-root { padding: 5rem 1rem 5rem; }
+  .hs-cards { grid-template-columns: 1fr; }
+
+  .hs-trust {
+    flex-direction: column;
+    border-radius: 14px;
+  }
+  .hs-trust-item {
+    border-right: none;
+    border-bottom: 1px solid var(--hs-card-bdr);
+    padding: 1.2rem 1rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  .hs-trust-item:last-child { border-bottom: none; }
+  .hs-trust-label { text-align: left; }
+
+  .hs-eyebrow-rule { width: 24px; }
+  .hs-eyebrow-text { font-size: 0.64rem; }
+
+  .hs-btn { width: 100%; justify-content: center; }
+
+  .hs-card-inner { padding: 1.6rem 1.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-grain { animation: none; }
+  .hs-anim {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hs-title .letter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hs-card-title,
+  .hs-brand,
+  .hs-trust-num {
+    color: var(--hs-text);
+  }
+
+  .hs-card-desc,
+  .hs-sub,
+  .hs-trust-label,
+  .hs-cta-note {
+    color: var(--hs-muted);
+  }
+}

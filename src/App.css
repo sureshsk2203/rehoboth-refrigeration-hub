@@ -1,0 +1,336 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Push page content below the fixed navbar (90px height) ── */
+.ac-section,
+.sp-section,
+.fr-section,
+.fsp-section,
+.vs-section,
+.vsp-section,
+.cg-section,
+.co-section,
+.wm-section,
+.wmsp-section,
+.at-section,
+.cs-section,
+.ro-section {
+  padding-top: 130px !important;
+}
+
+/* rh-about (About page) — rh-hero has its own top padding, no override needed */
+.rh-about {
+  padding-top: 0 !important;
+}
+
+/* ═══════════════════════════════════════════
+   GLOBAL DARK THEME — applies to every page
+   Toggled by body.dark-theme class (set in Navbar.jsx)
+═══════════════════════════════════════════ */
+
+/* Page background for every section */
+body.dark-theme .ac-section,
+body.dark-theme .sp-section,
+body.dark-theme .fr-section,
+body.dark-theme .fsp-section,
+body.dark-theme .vs-section,
+body.dark-theme .vsp-section,
+body.dark-theme .cg-section,
+body.dark-theme .co-section,
+body.dark-theme .wm-section,
+body.dark-theme .wmsp-section,
+body.dark-theme .at-section,
+body.dark-theme .cs-section,
+body.dark-theme .ro-section,
+body.dark-theme .rh-about {
+  background: #0f1419 !important;
+}
+
+/* Titles, headings — light text on dark bg */
+body.dark-theme .ac-title,
+body.dark-theme .sp-title,
+body.dark-theme .fr-title,
+body.dark-theme .fsp-title,
+body.dark-theme .vs-title,
+body.dark-theme .vsp-title,
+body.dark-theme .cg-title,
+body.dark-theme .co-title,
+body.dark-theme .wm-title,
+body.dark-theme .wmsp-title,
+body.dark-theme .at-title,
+body.dark-theme .cs-title,
+body.dark-theme .ro-title {
+  color: #f5f5f5 !important;
+}
+
+/* Subtitles / descriptions */
+body.dark-theme .ac-sub,
+body.dark-theme .sp-sub,
+body.dark-theme .fr-sub,
+body.dark-theme .fsp-sub,
+body.dark-theme .vs-sub,
+body.dark-theme .vsp-sub,
+body.dark-theme .cg-sub,
+body.dark-theme .co-sub,
+body.dark-theme .wm-sub,
+body.dark-theme .wmsp-sub,
+body.dark-theme .at-sub,
+body.dark-theme .ro-sub {
+  color: #9fb3c8 !important;
+}
+
+/* Card names */
+body.dark-theme .ac-jcard-name,
+body.dark-theme .sp-jcard-name,
+body.dark-theme .fr-jcard-name,
+body.dark-theme .fsp-jcard-name,
+body.dark-theme .vs-jcard-name,
+body.dark-theme .vsp-jcard-name,
+body.dark-theme .cg-jcard-name,
+body.dark-theme .co-jcard-name,
+body.dark-theme .wm-jcard-name,
+body.dark-theme .wmsp-jcard-name,
+body.dark-theme .at-jcard-name,
+body.dark-theme .cs-jcard-name,
+body.dark-theme .ro-jcard-name,
+body.dark-theme .ac-scard-name,
+body.dark-theme .sp-scard-name,
+body.dark-theme .fr-scard-name,
+body.dark-theme .fsp-scard-name,
+body.dark-theme .vs-scard-name,
+body.dark-theme .vsp-scard-name,
+body.dark-theme .cg-scard-name,
+body.dark-theme .co-scard-name,
+body.dark-theme .wm-scard-name,
+body.dark-theme .wmsp-scard-name,
+body.dark-theme .at-scard-name,
+body.dark-theme .cs-scard-name,
+body.dark-theme .ro-scard-name {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Card labels (e.g. COOLING, STORAGE, HEART, MOTOR) */
+body.dark-theme .ac-jcard-label,
+body.dark-theme .sp-jcard-label,
+body.dark-theme .fr-jcard-label,
+body.dark-theme .fsp-jcard-label,
+body.dark-theme .vs-jcard-label,
+body.dark-theme .vsp-jcard-label,
+body.dark-theme .cg-jcard-label,
+body.dark-theme .co-jcard-label,
+body.dark-theme .wm-jcard-label,
+body.dark-theme .wmsp-jcard-label,
+body.dark-theme .at-jcard-label,
+body.dark-theme .cs-jcard-label,
+body.dark-theme .ro-jcard-label,
+body.dark-theme .ac-scard-label,
+body.dark-theme .sp-scard-label,
+body.dark-theme .fr-scard-label,
+body.dark-theme .fsp-scard-label,
+body.dark-theme .vs-scard-label,
+body.dark-theme .vsp-scard-label,
+body.dark-theme .cg-scard-label,
+body.dark-theme .co-scard-label,
+body.dark-theme .wm-scard-label,
+body.dark-theme .wmsp-scard-label,
+body.dark-theme .at-scard-label,
+body.dark-theme .cs-scard-label,
+body.dark-theme .ro-scard-label {
+  color: #7a9bb5 !important;
+}
+
+/* Image card backgrounds */
+body.dark-theme .ac-jcard-imgwrap,
+body.dark-theme .sp-jcard-imgwrap,
+body.dark-theme .fr-jcard-imgwrap,
+body.dark-theme .fsp-jcard-imgwrap,
+body.dark-theme .vs-jcard-imgwrap,
+body.dark-theme .vsp-jcard-imgwrap,
+body.dark-theme .cg-jcard-imgwrap,
+body.dark-theme .co-jcard-imgwrap,
+body.dark-theme .wm-jcard-imgwrap,
+body.dark-theme .wmsp-jcard-imgwrap,
+body.dark-theme .at-jcard-imgwrap,
+body.dark-theme .cs-jcard-imgwrap,
+body.dark-theme .ro-jcard-imgwrap,
+body.dark-theme .ac-scard-imgwrap,
+body.dark-theme .sp-scard-imgwrap,
+body.dark-theme .fr-scard-imgwrap,
+body.dark-theme .fsp-scard-imgwrap,
+body.dark-theme .vs-scard-imgwrap,
+body.dark-theme .vsp-scard-imgwrap,
+body.dark-theme .cg-scard-imgwrap,
+body.dark-theme .co-scard-imgwrap,
+body.dark-theme .wm-scard-imgwrap,
+body.dark-theme .wmsp-scard-imgwrap,
+body.dark-theme .at-scard-imgwrap,
+body.dark-theme .cs-scard-imgwrap,
+body.dark-theme .ro-scard-imgwrap {
+  background: #1c232b !important;
+}
+
+/* Section block headings on sparepart pages */
+body.dark-theme .sp-section-title,
+body.dark-theme .fsp-section-title,
+body.dark-theme .vsp-section-title,
+body.dark-theme .wmsp-section-title,
+body.dark-theme .ro-section-title {
+  color: #f0f0f0 !important;
+}
+
+body.dark-theme .sp-section-head,
+body.dark-theme .fsp-section-head,
+body.dark-theme .vsp-section-head,
+body.dark-theme .wmsp-section-head,
+body.dark-theme .ro-section-head {
+  border-bottom-color: #2a3340 !important;
+}
+
+/* Back buttons */
+body.dark-theme .ac-back-btn,
+body.dark-theme .fr-back-btn,
+body.dark-theme .vs-back-btn,
+body.dark-theme .cg-back-btn,
+body.dark-theme .co-back-btn,
+body.dark-theme .wm-back-btn,
+body.dark-theme .at-back-btn,
+body.dark-theme .sp-back-btn,
+body.dark-theme .fsp-back-btn,
+body.dark-theme .vsp-back-btn,
+body.dark-theme .wmsp-back-btn,
+body.dark-theme .ro-back-btn {
+  background: #1c232b !important;
+  border-color: #2a3340 !important;
+  color: #4ecb98 !important;
+}
+
+/* View / action buttons */
+body.dark-theme .ac-viewbtn,
+body.dark-theme .fr-viewbtn,
+body.dark-theme .vs-viewbtn,
+body.dark-theme .cg-viewbtn,
+body.dark-theme .co-viewbtn,
+body.dark-theme .wm-viewbtn,
+body.dark-theme .at-viewbtn,
+body.dark-theme .sp-viewbtn,
+body.dark-theme .fsp-viewbtn,
+body.dark-theme .vsp-viewbtn,
+body.dark-theme .wmsp-viewbtn,
+body.dark-theme .ro-viewbtn,
+body.dark-theme .cs-viewbtn {
+  background: #233039 !important;
+  border: 1.5px solid #3a4a58 !important;
+  color: #5fe3ac !important;
+  font-weight: 800 !important;
+}
+
+body.dark-theme .ac-viewbtn:hover,
+body.dark-theme .fr-viewbtn:hover,
+body.dark-theme .vs-viewbtn:hover,
+body.dark-theme .cg-viewbtn:hover,
+body.dark-theme .co-viewbtn:hover,
+body.dark-theme .wm-viewbtn:hover,
+body.dark-theme .at-viewbtn:hover,
+body.dark-theme .sp-viewbtn:hover,
+body.dark-theme .fsp-viewbtn:hover,
+body.dark-theme .vsp-viewbtn:hover,
+body.dark-theme .wmsp-viewbtn:hover,
+body.dark-theme .ro-viewbtn:hover,
+body.dark-theme .cs-viewbtn:hover {
+  background: #1d9e75 !important;
+  color: #ffffff !important;
+  border-color: #1d9e75 !important;
+  box-shadow: 0 6px 20px rgba(29,158,117,0.5) !important;
+}
+
+/* Scroll arrows */
+body.dark-theme .ac-arrow,
+body.dark-theme .fr-arrow,
+body.dark-theme .vs-arrow,
+body.dark-theme .cg-arrow,
+body.dark-theme .co-arrow,
+body.dark-theme .wm-arrow,
+body.dark-theme .at-arrow,
+body.dark-theme .sp-arrow,
+body.dark-theme .fsp-arrow,
+body.dark-theme .vsp-arrow,
+body.dark-theme .wmsp-arrow,
+body.dark-theme .ro-arrow,
+body.dark-theme .cs-arrow {
+  background: #1c232b !important;
+  border-color: #2a3340 !important;
+}
+
+/* Eyebrow tags */
+body.dark-theme .ac-eyebrow,
+body.dark-theme .sp-eyebrow,
+body.dark-theme .fr-eyebrow,
+body.dark-theme .fsp-eyebrow,
+body.dark-theme .vs-eyebrow,
+body.dark-theme .vsp-eyebrow,
+body.dark-theme .cg-eyebrow,
+body.dark-theme .co-eyebrow,
+body.dark-theme .wm-eyebrow,
+body.dark-theme .wmsp-eyebrow,
+body.dark-theme .at-eyebrow,
+body.dark-theme .cs-eyebrow,
+body.dark-theme .ro-eyebrow {
+  color: #4ecb98 !important;
+}
+
+/* Hero section dark mode */
+body.dark-theme .hero {
+  background: #0f1419 !important;
+}
+body.dark-theme .hero-tag {
+  color: #d4af37 !important;
+}
+body.dark-theme .hero-left p {
+  color: #b8c4d0 !important;
+}
+
+/* About page dark mode */
+body.dark-theme .rh-why-card {
+  background: #1c232b !important;
+  color: #e8e8e8 !important;
+}
+body.dark-theme .rh-story-content p,
+body.dark-theme .rh-why-card p {
+  color: #b8c4d0 !important;
+}
+body.dark-theme .rh-stat h2 {
+  color: #4ecb98 !important;
+}

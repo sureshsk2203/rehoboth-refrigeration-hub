@@ -1,0 +1,358 @@
+/* ══════════════════════════════════════════════════
+   Accessories_Tools.css  |  Rohoboth — Accessories & Tools Page
+   Mirrors Ac_types.css exactly — prefix: at-
+══════════════════════════════════════════════════ */
+
+* { box-sizing: border-box; }
+
+.at-section {
+  width: 100%;
+  padding: 56px 40px 72px;
+  background: #f0f4f8;
+  font-family: 'Segoe UI', 'Inter', sans-serif;
+}
+
+/* ── Back Button ── */
+.at-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 32px;
+  padding: 9px 20px;
+  border-radius: 50px;
+  background: #fff;
+  border: 1.5px solid #d0e4f5;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1d9e75;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  animation: atFadeDown 0.5s ease both;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.at-back-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.at-back-btn:hover {
+  background: #1d9e75;
+  color: #fff;
+  border-color: #1d9e75;
+  transform: translateX(-4px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(29,158,117,0.28);
+}
+
+/* ── Header ── */
+.at-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.at-eyebrow {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1d9e75;
+  animation: atFadeDown 0.6s ease both;
+}
+
+.at-title {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0a2540;
+  letter-spacing: -0.5px;
+  animation: atFadeDown 0.6s 0.08s ease both;
+}
+
+.at-sub {
+  margin: 0;
+  font-size: 14px;
+  color: #6b8aaa;
+  font-weight: 500;
+  animation: atFadeDown 0.6s 0.16s ease both;
+}
+
+@keyframes atFadeDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ════════════════════════════════
+   TOP GRID
+════════════════════════════════ */
+.at-grid {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.at-grid--center {
+  justify-content: center;
+}
+
+/* ── Card bounce-in entrance ── */
+.at-jcard {
+  width: 210px;
+  border-radius: 22px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(60px) scale(0.75) rotate(-3deg);
+  transition:
+    opacity 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--di) * 0.12s);
+}
+
+.at-jcard--in {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+}
+
+.at-jcard:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.at-jcard-label {
+  margin: 0 0 10px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8fa5bc;
+}
+
+/* ── Image wrap ── */
+.at-jcard-imgwrap {
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+.at-jcard:hover .at-jcard-imgwrap {
+  transform: scale(1.05);
+  box-shadow:
+    0 20px 48px rgba(29,158,117,0.18),
+    0 0 0 3px rgba(29,158,117,0.12);
+}
+
+/* ── Floating image animation ── */
+.at-jcard-img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  animation: atFloat 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--fi) * 0.45s);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes atFloat {
+  0%   { transform: translateY(0px)   rotate(0deg)    scale(1);    }
+  25%  { transform: translateY(-8px)  rotate(1.5deg)  scale(1.03); }
+  50%  { transform: translateY(-12px) rotate(0deg)    scale(1.05); }
+  75%  { transform: translateY(-6px)  rotate(-1.5deg) scale(1.02); }
+  100% { transform: translateY(0px)   rotate(0deg)    scale(1);    }
+}
+
+.at-jcard:hover .at-jcard-img {
+  animation: none;
+  transform: scale(1.22) translateY(-8px) rotate(6deg);
+  filter: drop-shadow(0 14px 28px rgba(29,158,117,0.25));
+}
+
+.at-jcard-name {
+  margin: 14px 0 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0a2540;
+  text-align: center;
+  letter-spacing: -0.1px;
+}
+
+/* ── View Details Button ── */
+.at-viewbtn {
+  margin-top: 10px;
+  padding: 7px 18px;
+  border-radius: 50px;
+  background: #fff;
+  border: 1.5px solid #d0e4f5;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1d9e75;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.at-viewbtn:hover {
+  background: #1d9e75;
+  color: #fff;
+  border-color: #1d9e75;
+  transform: scale(1.07);
+  box-shadow: 0 6px 18px rgba(29,158,117,0.28);
+}
+
+.at-viewbtn--sm {
+  margin-top: 9px;
+  padding: 6px 14px;
+  font-size: 10.5px;
+}
+
+/* ════════════════════════════════
+   SMOOTH INFINITE SCROLL ROW
+════════════════════════════════ */
+.at-scroll-outer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 44px;
+}
+
+.at-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #d4e5f7;
+  background: #fff;
+  color: #c8d8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.at-arrow svg { width: 20px; height: 20px; }
+
+.at-arrow--on {
+  border-color: #1d9e75;
+  color: #1d9e75;
+  box-shadow: 0 4px 14px rgba(29,158,117,0.18);
+}
+
+.at-arrow--on:hover {
+  background: #1d9e75;
+  color: #fff;
+  transform: scale(1.12);
+  box-shadow: 0 8px 24px rgba(29,158,117,0.35);
+}
+
+.at-arrow--on:active { transform: scale(0.95); }
+
+.at-track-outer {
+  flex: 1;
+  overflow: hidden;
+  padding: 14px 0 22px;
+}
+
+.at-track {
+  display: flex;
+  gap: 18px;
+  will-change: transform;
+  width: max-content;
+}
+
+/* ── Scroll cards ── */
+.at-scard {
+  width: 210px;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.at-scard:hover { transform: translateY(-10px); }
+
+.at-scard-label {
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8fa5bc;
+}
+
+.at-scard-imgwrap {
+  width: 100%;
+  height: 185px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    box-shadow 0.32s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.at-scard:hover .at-scard-imgwrap {
+  box-shadow:
+    0 18px 42px rgba(29,158,117,0.16),
+    0 0 0 3px rgba(29,158,117,0.10);
+  transform: scale(1.04);
+}
+
+.at-scard-img {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  animation: atFloat 3.4s ease-in-out infinite;
+  animation-delay: calc(var(--fi) * 0.45s);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.10));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.at-scard:hover .at-scard-img {
+  animation: none;
+  transform: scale(1.2) translateY(-8px) rotate(5deg);
+  filter: drop-shadow(0 12px 24px rgba(29,158,117,0.22));
+}
+
+.at-scard-name {
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0a2540;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .at-section { padding: 40px 16px 56px; }
+  .at-grid { flex-wrap: wrap; }
+  .at-jcard { width: 160px; }
+  .at-jcard-imgwrap { height: 160px; }
+  .at-jcard-img { width: 100px; height: 100px; }
+  .at-scard { width: 180px; }
+}
+
+@media (max-width: 540px) {
+  .at-title { font-size: 24px; }
+  .at-jcard { width: 140px; }
+  .at-scard { width: 160px; }
+}

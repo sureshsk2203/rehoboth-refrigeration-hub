@@ -1,0 +1,428 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@200;300&display=swap');
+
+/* ─────────────────────────────────────────
+   RESET
+───────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ─────────────────────────────────────────
+   SCREEN
+───────────────────────────────────────── */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 35%, #0a4a28 0%, #042016 45%, #010d07 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────
+   AMBIENT GLOW
+───────────────────────────────────────── */
+.loader-glow {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  width: 460px;
+  height: 320px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(10, 120, 60, .3) 0%, transparent 70%);
+  pointer-events: none;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+   PARTICLES
+───────────────────────────────────────── */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.4);
+  left: calc(10% + (var(--i) * 7%));
+  top: 100%;
+  animation: floatUp calc(5s + var(--i) * 0.6s) calc(var(--i) * 0.4s) ease-in infinite;
+}
+
+.particle:nth-child(even) {
+  width: 3px;
+  height: 3px;
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* ─────────────────────────────────────────
+   CONTENT WRAPPER
+───────────────────────────────────────── */
+.loader-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────────────
+   EAGLE RING SYSTEM
+───────────────────────────────────────── */
+
+.eagle-ring-wrap{
+  position:relative;
+  width:clamp(160px,45vw,200px);
+  height:clamp(160px,45vw,200px);
+  margin-bottom:20px;
+  opacity:0;
+  animation:fadeIn .4s .1s ease forwards;
+}
+
+/* Outer rotating ring */
+.ring-outer {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, .1);
+  animation: spinCW 14s linear infinite;
+}
+
+.ring-outer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: rgba(212, 175, 55, .75);
+  border-right-color: rgba(212, 175, 55, .25);
+}
+
+/* Mid counter-rotating ring */
+.ring-mid {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(212, 175, 55, .15);
+  animation: spinCCW 9s linear infinite;
+}
+
+.ring-mid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: #d4af37;
+  border-left-color: rgba(212, 175, 55, .35);
+}
+
+/* ── Orbit tracks ── */
+.orbit-track {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-track--1 {
+  inset: -14px;
+  animation: spinCW 5s linear infinite;
+}
+
+.orbit-track--2 {
+  inset: -5px;
+  animation: spinCCW 8s linear infinite;
+}
+
+.orbit-dot {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.orbit-dot--lg {
+  width: 6px;
+  height: 6px;
+  background: #d4af37;
+  box-shadow: 0 0 8px 2px rgba(212, 175, 55, .6);
+  top: -3px;
+}
+
+.orbit-dot--sm {
+  width: 3px;
+  height: 3px;
+  background: rgba(212, 175, 55, .7);
+  top: -1.5px;
+}
+
+/* ── Tick marks ── */
+.tick-ring {
+  position: absolute;
+  inset: -14px;
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  width: 1.5px;
+  height: 5px;
+  background: rgba(212, 175, 55, .25);
+  border-radius: 1px;
+  top: 0;
+  left: 50%;
+  transform-origin: 0.75px 114px;
+  transform: translateX(-50%) rotate(calc(var(--t) * 15deg));
+}
+
+.tick--major {
+  height: 8px;
+  width: 2px;
+  background: rgba(212, 175, 55, .6);
+}
+
+/* ── Eagle circle ── */
+
+.eagle-circle{
+  position:relative;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  border:1.5px solid rgba(212,175,55,.3);
+  background:radial-gradient(
+    ellipse at 50% 25%,
+    rgba(10,80,40,.55) 0%,
+    rgba(2,18,10,.98) 100%
+  );
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:circleGlow 3s 1.5s ease-in-out infinite;
+}
+
+.circle-inner-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 110%,
+    rgba(212, 175, 55, .08) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+/* ── Corner ornaments ── */
+.corner {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.corner::before,
+.corner::after {
+  content: '';
+  position: absolute;
+  background: rgba(212, 175, 55, .55);
+}
+
+.corner::before { width: 100%; height: 1px; top: 0; left: 0; }
+.corner::after  { width: 1px; height: 100%; top: 0; left: 0; }
+
+.corner--tl { top: 6px; left: 6px; }
+.corner--tr { top: 6px; right: 6px; transform: scaleX(-1); }
+.corner--bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
+.corner--br { bottom: 6px; right: 6px; transform: scale(-1); }
+
+/* ── Eagle image ── */
+
+.loader-eagle{
+  width:88%;
+  height:88%;
+  object-fit:contain;
+  opacity:0;
+  transform:scale(.45) translateY(16px);
+  animation:eagleDrop 1.3s .25s cubic-bezier(.16,1,.3,1) forwards;
+  filter:drop-shadow(0 6px 24px rgba(0,0,0,.65));
+  position:relative;
+  z-index:1;
+}
+
+/* ─────────────────────────────────────────
+   BRAND
+───────────────────────────────────────── */
+.brand-wrap {
+  overflow: hidden;
+  margin: 4px 0;
+}
+
+
+.loader-brand{
+  font-family:'Playfair Display', serif;
+  font-size:clamp(30px,10vw,60px);
+  font-weight:700;
+  letter-spacing:clamp(2px,2vw,14px);
+  text-indent:0;
+  text-align:center;
+  color:#fff;
+  opacity:0;
+  transform:scale(1.45);
+  animation:zoomBrand 1s 1.1s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+/* ─────────────────────────────────────────
+   DIVIDER
+───────────────────────────────────────── */
+.loader-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  opacity: 0;
+  animation: fadeUp .6s 1.85s ease forwards;
+}
+
+.dl {
+  display: block;
+  width: 48px;
+  height: .5px;
+  background: rgba(212, 175, 55, .35);
+}
+
+.dd {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #d4af37;
+  transform: rotate(45deg);
+}
+
+/* ─────────────────────────────────────────
+   SUBTITLE
+───────────────────────────────────────── */
+
+
+
+.loader-sub{
+  font-family:'Raleway',sans-serif;
+  font-weight:900;
+  font-size:clamp(9px,2vw,12px);
+  letter-spacing:clamp(2px,1vw,6px);
+  color:#d4af37;
+  text-transform:uppercase;
+  text-align:center;
+  opacity:0;
+  text-shadow:0 0 8px rgba(212,175,55,.35);
+  animation:fadeUp .6s 2.05s ease forwards;
+}
+/* ─────────────────────────────────────────
+   PROGRESS BAR
+───────────────────────────────────────── */
+.bar-wrap {
+  margin-top: 28px;
+  width: 230px;
+  opacity: 0;
+  animation: fadeUp .6s 2.25s ease forwards;
+}
+
+.bar-track {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, .07);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, rgba(212, 175, 55, .25), #d4af37);
+  animation: fill 7s 2.5s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+/* ─────────────────────────────────────────
+   DOTS
+───────────────────────────────────────── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.dot {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, .2);
+  animation: dotPulse 1.5s ease infinite;
+}
+
+.dot:nth-child(2) { animation-delay: .2s; }
+.dot:nth-child(3) { animation-delay: .4s; }
+
+/* ─────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────── */
+@keyframes eagleDrop {
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes zoomBrand {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fill {
+  to { width: 100%; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { background: rgba(212, 175, 55, .2); }
+  50%       { background: rgba(212, 175, 55, .8); }
+}
+
+@keyframes spinCW {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCCW {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: .7; }
+  50%       { opacity: 1; }
+}
+
+@keyframes circleGlow {
+  0%, 100% { box-shadow: 0 0 0px 0px rgba(212, 175, 55, 0); }
+  50%       { box-shadow: 0 0 22px 4px rgba(212, 175, 55, .1); }
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0) scale(1); opacity: .5; }
+  80%  { opacity: .3; }
+  100% { transform: translateY(-100vh) scale(.5); opacity: 0; }
+}
+
+
