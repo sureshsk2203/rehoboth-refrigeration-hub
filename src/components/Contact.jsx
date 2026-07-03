@@ -50,7 +50,7 @@ const Contact = () => {
             <div>
               <h4>Phone</h4>
               <p>
-                <a href="tel:+919952989168">+91 9952989168</a>
+                <a href="tel:+919443791706">+91 9443791706</a>
               </p>
             </div>
           </div>
@@ -71,7 +71,7 @@ const Contact = () => {
             <FaMapMarkerAlt className="icon" />
             <div>
               <h4>Address</h4>
-              <p>Chennai, Tamil Nadu - 600001</p>
+              <p>Adayakarungulam, Ambasamudram, Tirunelveli, Tamil Nadu - 627425</p>
             </div>
           </div>
 
@@ -125,7 +125,7 @@ const Contact = () => {
       </div>
 
       <a
-        href="https://wa.me/919952989168"
+        href="https://wa.me/919443791706"
         className="whatsapp-btn"
         target="_blank"
         rel="noreferrer"
