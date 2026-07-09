@@ -9,8 +9,8 @@ const categories = [
   { id: 3, name: "Washing Machines",    label: "LAUNDRY",      img: "/images/Wachingmachine.png",      bg: "#e8f1fb", route: "/wm-types" },
   { id: 4, name: "Voltage Stabilizers", label: "PROTECTION",   img: "/images/Voltage Stabilizers.png", bg: "#e8f1fb", route: "/voltage-stabilizers" },
   { id: 5, name: "Cooling Gas",         label: "REFRIGERANTS", img: "/Coolinggas/R22.jpg",             bg: "#e8f1fb", route: "/cooling-gas" },
-  { id: 6, name: "Refrigeration Oils",  label: "LUBRICANTS",   img: "/images/Refrigeration Oils.png",  bg: "#e8f1fb", route: "/compressoroil-types"},
-  { id: 8, name: "RO Water Purifiers",  label: "PURE WATER",   img: "/Rowater/Storage Tank.jpeg",       bg: "#e8f1fb", route: "/ro-spareparts" },
+  { id: 6, name: "Refrigeration Oil",  label: "LUBRICANTS",   img: "/images/Refrigeration Oil.png",    bg: "#e8f1fb", route: "/compressoroil-types"},
+  { id: 8, name: "RO Water Purifiers",  label: "PURE WATER",   img: "/Rowater/Storage Tank.jpeg",      bg: "#e8f1fb", route: "/ro-spareparts" },
   { id: 7, name: "Accessories & Tools", label: "SPARE PARTS",  img: "/images/Accessories & Tools.png", bg: "#e8f1fb", route: "/accessories-tools" },
 ];
 

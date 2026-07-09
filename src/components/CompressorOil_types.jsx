@@ -9,6 +9,9 @@ const oilTypes = [
   { id: 3, name: "Synthetic Oil",     label: "LUBRICANT", img: "/Compressor Oil/Synthetic Oil.webp",    bg: "#e8f1fb" },
   { id: 4, name: "Alkyl Benzene Oil", label: "LUBRICANT", img: "/Compressor Oil/Alkyl Benzene Oil.jpg", bg: "#e8f1fb" },
   { id: 5, name: "PAG Oil",           label: "LUBRICANT", img: "/Compressor Oil/PAG Oil.png",           bg: "#e8f1fb" },
+  { id: 6, name: "PAG Oil R134a",     label: "LUBRICANT", img: "/Compressor Oil/PAG Oil R134a.png",     bg: "#e8f1fb" },
+  { id: 7, name: "Value Plus Oil",    label: "LUBRICANT", img: "/Compressor Oil/Value Plus Oil.png",    bg: "#e8f1fb" },
+  { id: 8, name: "ARTI Care",         label: "LUBRICANT", img: "/Compressor Oil/ARTI Care.png",         bg: "#e8f1fb" },
 ];
 
 const looped = [...oilTypes, ...oilTypes, ...oilTypes];
@@ -79,8 +82,8 @@ export default function CompressorOilTypes() {
     requestAnimationFrame(snap);
   }, []);
 
-  const row1 = oilTypes.slice(0, 3);
-  const row2 = oilTypes.slice(3, 5);
+  const row1 = oilTypes.slice(0, 4);
+  const row2 = oilTypes.slice(4, 8);
 
   return (
     <section className="co-section">
