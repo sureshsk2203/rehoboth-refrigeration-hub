@@ -4,42 +4,7 @@ import "./About.css";
 import { IconDroplet } from "@tabler/icons-react";
 
 /* ---- inline icons ---- */
-function IconShield() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
-      <path d="M24 4 L42 11 V22 C42 33 34 41 24 44 C14 41 6 33 6 22 V11 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-      <path d="M16 23 L22 29 L33 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-function IconClock() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
-      <circle cx="24" cy="24" r="19" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M24 14 V24 L32 29" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-function IconHeadset() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
-      <path d="M8 26 V23 C8 13.6 15.2 6 24 6 C32.8 6 40 13.6 40 23 V26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-      <rect x="6" y="26" width="9" height="13" rx="3" stroke="currentColor" strokeWidth="2.5" />
-      <rect x="33" y="26" width="9" height="13" rx="3" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M40 39 C40 42.3 37.3 44 33 44 H30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-function IconReturn() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
-      <path d="M10 22 C10 14.3 16.3 8 24 8 C30 8 35.2 11.6 37.4 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M38 38 C38 33.7 34.3 30 30 30 C24 30 18.8 33.6 16.6 39" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M37 8 V18 H27" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M11 40 V30 H21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+
 function IconAirConditioner() {
   return (
     <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">

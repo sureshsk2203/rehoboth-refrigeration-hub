@@ -68,12 +68,16 @@ const Contact = () => {
           </div>
 
           <div className="info-item">
-            <FaMapMarkerAlt className="icon" />
-            <div>
-              <h4>Address</h4>
-              <p>Adayakarungulam, Ambasamudram, Tirunelveli, Tamil Nadu - 627425</p>
-            </div>
-          </div>
+  <FaMapMarkerAlt className="icon" />
+  <div>
+    <h4>Address</h4>
+    <p>
+      REHOBOTH REFRIGERATION HUB,<br />
+      3/579, Sivanathipuram,<br />
+      Tamil Nadu - 627425
+    </p>
+  </div>
+</div>
 
           <div className="info-item">
             <FaClock className="icon" />
@@ -137,16 +141,23 @@ const Contact = () => {
         <FaPhoneAlt />
       </a>
 
-      <div className="map-container">
-        <iframe
-          title="map"
-          src="https://maps.google.com/maps?q=Adayakarungulam,Ambasamudram,Tirunelveli,Tamil%20Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
-          width="100%"
-          height="350"
-          style={{ border: 0 }}
-          loading="lazy"
-        ></iframe>
-      </div>
+    <div className="map-container">
+  <a
+    href="https://www.google.com/maps/place/REHOBOTH+REFRIGERATION+HUB/@8.709579,77.411122,17z"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <iframe
+      title="Rehoboth Refrigeration Hub"
+      src="https://maps.google.com/maps?q=8.709579,77.411122&z=17&output=embed"
+      width="100%"
+      height="350"
+      style={{ border: 0, pointerEvents: "none" }}
+      loading="lazy"
+      allowFullScreen
+    ></iframe>
+  </a>
+</div>
     </section>
   );
 };
