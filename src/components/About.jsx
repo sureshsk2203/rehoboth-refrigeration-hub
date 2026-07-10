@@ -74,7 +74,6 @@ const STATS = [
 
 /* ---- counter animation ---- */
 function animateCount(el, target, suffix) {
-  let start = 0;
   const duration = 1800;
   const startTime = performance.now();
   const update = (now) => {
