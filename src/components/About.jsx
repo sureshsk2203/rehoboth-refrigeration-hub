@@ -1,10 +1,45 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import "./About.css";
 import { IconDroplet } from "@tabler/icons-react";
 
 /* ---- inline icons ---- */
-
+function IconShield() {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
+      <path d="M24 4 L42 11 V22 C42 33 34 41 24 44 C14 41 6 33 6 22 V11 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M16 23 L22 29 L33 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconClock() {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
+      <circle cx="24" cy="24" r="19" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M24 14 V24 L32 29" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconHeadset() {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
+      <path d="M8 26 V23 C8 13.6 15.2 6 24 6 C32.8 6 40 13.6 40 23 V26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <rect x="6" y="26" width="9" height="13" rx="3" stroke="currentColor" strokeWidth="2.5" />
+      <rect x="33" y="26" width="9" height="13" rx="3" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M40 39 C40 42.3 37.3 44 33 44 H30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconReturn() {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
+      <path d="M10 22 C10 14.3 16.3 8 24 8 C30 8 35.2 11.6 37.4 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M38 38 C38 33.7 34.3 30 30 30 C24 30 18.8 33.6 16.6 39" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M37 8 V18 H27" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M11 40 V30 H21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 function IconAirConditioner() {
   return (
     <svg viewBox="0 0 48 48" fill="none" className="rh-why-icon">
@@ -74,7 +109,8 @@ const STATS = [
 
 /* ---- counter animation ---- */
 function animateCount(el, target, suffix) {
-  const duration = 1800; 
+  let start = 0;
+  const duration = 1800;
   const startTime = performance.now();
   const update = (now) => {
     const p = Math.min((now - startTime) / duration, 1);
@@ -86,13 +122,28 @@ function animateCount(el, target, suffix) {
 }
 
 export default function About() {
-  const stackRef    = useRef(null);
-  const heroRef     = useRef(null);
-  const orb1Ref     = useRef(null);
-  const orb2Ref     = useRef(null);
-  const bgTextRef   = useRef(null);
-  const statsRef    = useRef(null);
-  const statCounted = useRef(false);
+  const stackRef        = useRef(null);
+  const heroRef          = useRef(null);
+  const orb1Ref           = useRef(null);
+  const orb2Ref           = useRef(null);
+  const bgTextRef         = useRef(null);
+  const statsRef          = useRef(null);
+  const statCounted       = useRef(false);
+  const serviceBannerRef  = useRef(null);
+
+  /* floating gold particles for the cinematic service banner */
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 26 }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        size: 2 + Math.random() * 3,
+        delay: Math.random() * 8,
+        duration: 7 + Math.random() * 9,
+        drift: (Math.random() - 0.5) * 40,
+      })),
+    []
+  );
 
   /* ── SCROLL PARALLAX ── */
   useEffect(() => {
@@ -148,9 +199,6 @@ export default function About() {
     };
   }, []);
 
-  /* ── CARD 3-D TILT on why-cards ── */
- 
-
   /* ── COUNTER animation on stats ── */
   useEffect(() => {
     const el = statsRef.current;
@@ -185,6 +233,37 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
 
+  /* ── MOUSE PARALLAX + LIGHT POSITION on cinematic service banner ── */
+  useEffect(() => {
+    const el = serviceBannerRef.current;
+    if (!el) return;
+    const content = el.querySelector('.rh-service-content');
+
+    const onMove = (e) => {
+      const rect = el.getBoundingClientRect();
+      const mx = ((e.clientX - rect.left) / rect.width) * 100;
+      const my = ((e.clientY - rect.top) / rect.height) * 100;
+      el.style.setProperty('--mx', `${mx}%`);
+      el.style.setProperty('--my', `${my}%`);
+
+      const dx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+      const dy = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+      if (content) {
+       content.style.transform =
+`translateX(0) perspective(1000px) rotateY(${dx * 2}deg) rotateX(${-dy * 2}deg)`;}
+    };
+    const onLeave = () => {
+      if (content) content.style.transform = '';
+    };
+
+    el.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseleave', onLeave);
+    return () => {
+      el.removeEventListener('mousemove', onMove);
+      el.removeEventListener('mouseleave', onLeave);
+    };
+  }, []);
+
   return (
     <section id="about" className="rh-about">
       <div className="rh-bg-text" ref={bgTextRef}>REHOBOTH</div>
@@ -216,7 +295,7 @@ export default function About() {
             {/* Layer 1 — gold + green glow */}
             <div className="rh-stack-glow"></div>
 
-            {/* Layer 2 — dark disc: white halo completely போகும் */}
+            {/* Layer 2 — dark disc */}
             <div className="rh-stack-disc"></div>
 
             {/* Layer 3 — inner dashed ring */}
@@ -232,9 +311,9 @@ export default function About() {
               className="rh-product-img rh-ac"
             />
 
-    <span className="rh-badge rh-badge-1">🏆 Premium Quality</span>
-          <span className="rh-badge rh-badge-2">⚡ Best Prices</span>
-      <span className="rh-badge rh-badge-3">💯 Customer Satisfaction</span>
+            <span className="rh-badge rh-badge-1">🏆 Premium Quality</span>
+            <span className="rh-badge rh-badge-2">⚡ Best Prices</span>
+            <span className="rh-badge rh-badge-3">💯 Customer Satisfaction</span>
           </div>
         </div>
       </section>
@@ -292,6 +371,62 @@ export default function About() {
               <p>{text}</p>
             </div>
           ))}
+        </div>
+
+        {/* ── PREMIUM CINEMATIC SERVICE BANNER ── */}
+        <div className="rh-service-banner rh-reveal" ref={serviceBannerRef}>
+
+          {/* cinematic atmosphere layers */}
+          <div className="rh-cinematic-bg"></div>
+          <div className="rh-cinematic-rays"></div>
+          <div className="rh-cinematic-fog"></div>
+          <div className="rh-cinematic-particles">
+            {particles.map((p) => (
+              <span
+                key={p.id}
+                className="rh-particle"
+                style={{
+                  left: `${p.left}%`,
+                  width: `${p.size}px`,
+                  height: `${p.size}px`,
+                  animationDelay: `${p.delay}s`,
+                  animationDuration: `${p.duration}s`,
+                  "--drift": `${p.drift}px`,
+                }}
+              />
+            ))}
+          </div>
+          <div className="rh-cinematic-vignette"></div>
+
+          <div className="rh-service-glow"></div>
+
+          <div className="rh-service-content">
+            <span className="rh-service-badge">✨ Professional Services</span>
+
+            <div className="rh-tamil-hero">
+              <div className="rh-tamil-rays"></div>
+
+              <h2
+                className="rh-tamil-gold-title"
+                data-text="ஹார்வின் இன்ஜினியர்ஸ்"
+              >
+                ஹார்வின் இன்ஜினியர்ஸ்
+              </h2>
+
+              <div className="rh-tamil-nameplate">
+                <span className="rh-tamil-nameplate-shine"></span>
+                <h3 className="rh-tamil-silver-title">சர்வீஸ் சென்டர்</h3>
+              </div>
+            </div>
+
+            <Link to="/service" className="rh-service-button">
+              <span>Explore Our Services</span>
+              <svg viewBox="0 0 24 24" fill="none" className="rh-service-btn-arrow">
+                <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="rh-service-btn-ripple"></span>
+            </Link>
+          </div>
         </div>
 
         {/* STATS */}
