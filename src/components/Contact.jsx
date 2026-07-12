@@ -83,7 +83,7 @@ const Contact = () => {
             <FaClock className="icon" />
             <div>
               <h4>Working Hours</h4>
-              <p>Mon - Sat: 9 AM - 7 PM</p>
+              <p>Mon - Sat: 9 AM - 8 PM</p>
             </div>
           </div>
         </div>
