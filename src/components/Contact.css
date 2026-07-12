@@ -254,23 +254,21 @@ textarea {
 
 /* ===== MAP ===== */
 .map-container {
-  max-width: 1300px;
-  margin: 40px auto 0;
-  overflow: hidden;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
-.map-container iframe {
-  display: block;
-  transition: 0.5s ease;
+/* Place info popup hide */
+.map-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 80px;
+  background: var(--contact-bg-1, #0f172a);
+  z-index: 2;
+  border-radius: 8px;
 }
-
-.map-container:hover iframe {
-  transform: scale(1.03);
-}
-
 /* ===== WHATSAPP BUTTON ===== */
 .whatsapp-btn {
   position: fixed;

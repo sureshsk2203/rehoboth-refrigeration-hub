@@ -142,21 +142,16 @@ const Contact = () => {
       </a>
 
     <div className="map-container">
-  <a
-    href="https://www.google.com/maps/place/REHOBOTH+REFRIGERATION+HUB/@8.709579,77.411122,17z"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <iframe
-      title="Rehoboth Refrigeration Hub"
-      src="https://maps.google.com/maps?q=8.709579,77.411122&z=17&output=embed"
-      width="100%"
-      height="350"
-      style={{ border: 0, pointerEvents: "none" }}
-      loading="lazy"
-      allowFullScreen
-    ></iframe>
-  </a>
+  <iframe
+    title="Rehoboth Refrigeration Hub"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.8100999726075!2d77.41112210000003!3d8.709575899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04390039f63bb7%3A0xcbf3983d6845687a!2sREHOBOTH%20REFRIGERATION%20HUB!5e0!3m2!1sen!2sin!4v1783830884599!5m2!1sen!2sin"
+    width="100%"
+    height="400"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="strict-origin-when-cross-origin"
+  ></iframe>
 </div>
     </section>
   );
