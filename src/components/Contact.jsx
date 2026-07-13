@@ -73,8 +73,9 @@ const Contact = () => {
     <h4>Address</h4>
     <p>
       REHOBOTH REFRIGERATION HUB,<br />
-      3/579, Sivanathipuram,<br />
-      Tamil Nadu - 627425
+      3/574B-Marakkadi Stop, Near: RAJATHAI Typewriting institue,<br />
+      Sivanathipuram Main Road-627425,<br />
+      Papanasam, Tirunelveli.
     </p>
   </div>
 </div>
