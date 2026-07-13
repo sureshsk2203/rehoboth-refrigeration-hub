@@ -67,7 +67,7 @@ function App() {
         <Route path="/wm-types" element={<WashingMachineTypes />} />
         <Route path="/wm-spareparts" element={<WashingMachineSpareparts />} />
         <Route path="/ro-spareparts" element={<RoSpareparts />} />
-        <Route path="/services" element={<Service />} />
+        <Route path="/service" element={<Service />} />
         
       </Routes>
     </BrowserRouter>

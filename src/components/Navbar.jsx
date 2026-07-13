@@ -130,7 +130,7 @@ export default function Navbar() {
 
         <li>
           <NavLink
-            to="/services"
+            to="/service"
             className={({ isActive }) => (isActive ? "active" : "")}
             onClick={() => setMenuOpen(false)}
           >
