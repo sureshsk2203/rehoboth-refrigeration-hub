@@ -33,7 +33,7 @@ const bentoRight = [
   { icon: "⭐", title: "Customer Satisfaction", sub: "Trusted Service" },
 ];
 const heroStats = [
-  { target: 10, suffix: "+", label: "Years Experience" },
+  { target: 29, suffix: "+", label: "Years Experience" },
   { target: 5000, suffix: "+", label: "Happy Customers" },
 ];
 const heroBadges = ["Same Day Service", "Doorstep Support"];
@@ -161,8 +161,8 @@ export default function HarwinService() {
         {/* ── BANNER HERO ── */}
         <div className="hs-banner hs-anim">
           <img
-            src="/images/service-banner.jpeg"
-            alt="ஹார்வின் இன்ஜினியர்ஸ் - AC, Fridge, Washing Machine Service Center"
+            src="/images/service-banner.png"
+            alt="ஹார்வி இன்ஜினியர்ஸ் - AC, Fridge, Washing Machine Service Center"
             className="hs-banner-img"
             loading="eager"
           />
@@ -265,7 +265,7 @@ export default function HarwinService() {
               {...tilt}
             >
               <div className="hs-bento-glow hs-bento-glow-hero" aria-hidden="true" />
-              <span className="hs-hero-badge-top">Harwin Engineers</span>
+              <span className="hs-hero-badge-top">Harvin Engineers</span>
               <h3 className="hs-hero-title">
                 உங்கள் நம்பகமான
                 <br />
