@@ -161,7 +161,7 @@ export default function HarwinService() {
         {/* ── BANNER HERO ── */}
         <div className="hs-banner hs-anim">
           <img
-            src="/images/service-banner.png"
+            src="/images/service-banner.jpeg"
             alt="ஹார்வி இன்ஜினியர்ஸ் - AC, Fridge, Washing Machine Service Center"
             className="hs-banner-img"
             loading="eager"

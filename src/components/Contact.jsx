@@ -15,28 +15,42 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   const sendMessage = () => {
-    if (!name.trim()) {
-      alert("Enter your name");
-      return;
-    }
+  if (!name.trim()) {
+    alert("Enter your name");
+    return;
+  }
 
-    if (name.charAt(0) !== name.charAt(0).toUpperCase()) {
-      alert("Name first letter must be capital");
-      return;
-    }
 
-    if (phone.length !== 10 || !/^\d+$/.test(phone)) {
-      alert("Enter valid 10 digit phone number");
-      return;
-    }
+  if (phone.length !== 10 || !/^\d+$/.test(phone)) {
+    alert("Enter valid 10 digit phone number");
+    return;
+  }
 
-    if (!email.includes("@gmail.com")) {
-      alert("Enter valid email");
-      return;
-    }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  alert("Enter a valid email address");
+  return;
+}
 
-    alert("Validation Success");
-  };
+  if (!message.trim()) {
+    alert("Enter your message");
+    return;
+  }
+
+  const whatsappMessage = `Hello Rehoboth Refrigeration Hub,
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+
+Message:
+${message}`;
+
+  const url = `https://wa.me/919443791706?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
+  window.open(url, "_blank");
+};
 
   return (
     <section className="contact-section">
