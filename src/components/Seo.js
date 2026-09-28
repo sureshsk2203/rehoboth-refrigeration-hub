@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE = "https://rehobothrefrigerationhub.netlify.app";
+const SITE = "https://rehobothrefrigerationhub.online";
 
 // Update the tag if it exists in <head>, otherwise create it
 function upsert(tag, attrs, key) {
