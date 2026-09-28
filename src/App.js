@@ -27,85 +27,85 @@ import Seo from "./components/Seo";
 const PAGES = {
   "/": {
     title:
-      "Rehoboth Refrigeration Hub – AC, Fridge & Washing Machine Spare Parts, Ambasamudram",
+      "Rehoboth Refrigeration Hub – AC, Fridge & Washing Machine Spare Parts, Papanasam",
     description:
-      "AC, fridge, washing machine & RO spare parts, compressor oil and cooling gas in Ambasamudram, Kallidaikurichi, Vikramasingapuram and Papanasam. Call now.",
+      "AC, fridge, washing machine & RO spare parts, compressor oil and cooling gas in Papanasam, Ambasamudram, Kallidaikurichi and Vikramasingapuram. Call now.",
   },
   "/about": {
-    title: "About Us | Rehoboth Refrigeration Hub, Ambasamudram",
+    title: "About Us | Rehoboth Refrigeration Hub, Papanasam",
     description:
-      "Know more about Rehoboth Refrigeration Hub, your local supplier of AC, refrigerator and washing machine spare parts near Ambasamudram and Papanasam.",
+      "Know more about Rehoboth Refrigeration Hub, your local supplier of AC, refrigerator and washing machine spare parts near Papanasam and Ambasamudram.",
   },
   "/categories": {
     title: "Product Categories – AC, Fridge, Washing Machine Parts | Rehoboth",
     description:
-      "Browse AC, refrigerator, washing machine, RO, stabilizer, cooling gas, compressor oil and tools categories at Rehoboth Refrigeration Hub, Ambasamudram.",
+      "Browse AC, refrigerator, washing machine, RO, stabilizer, cooling gas, compressor oil and tools categories at Rehoboth Refrigeration Hub, Papanasam.",
   },
   "/contact": {
-    title: "Contact Rehoboth Refrigeration Hub | Ambasamudram",
+    title: "Contact Rehoboth Refrigeration Hub | Papanasam",
     description:
-      "Call or visit Rehoboth Refrigeration Hub for AC, fridge and washing machine spare parts in Ambasamudram, Kallidaikurichi, Vikramasingapuram and Papanasam.",
+      "Call or visit Rehoboth Refrigeration Hub for AC, fridge and washing machine spare parts in Papanasam, Ambasamudram, Kallidaikurichi and Vikramasingapuram.",
   },
   "/service": {
-    title: "Services | Rehoboth Refrigeration Hub, Ambasamudram",
+    title: "Services | Rehoboth Refrigeration Hub, Papanasam",
     description:
-      "Refrigeration and appliance related services from Rehoboth Refrigeration Hub for customers in Ambasamudram, Papanasam and nearby villages.",
+      "Refrigeration and appliance related services from Rehoboth Refrigeration Hub for customers in Papanasam, Ambasamudram and nearby villages.",
   },
   "/ac-types": {
     title: "AC Types – Split, Window & Cassette AC | Rehoboth Refrigeration Hub",
     description:
-      "Explore different types of air conditioners and the spare parts they need. Rehoboth Refrigeration Hub, Ambasamudram to Papanasam.",
+      "Explore different types of air conditioners and the spare parts they need. Rehoboth Refrigeration Hub, Papanasam to Ambasamudram.",
   },
   "/ac-spareparts": {
-    title: "AC Spare Parts in Ambasamudram & Papanasam | Rehoboth Refrigeration Hub",
+    title: "AC Spare Parts in Papanasam & Ambasamudram | Rehoboth Refrigeration Hub",
     description:
-      "AC compressor, PCB, fan motor, capacitor and other AC spare parts available in Ambasamudram, Kallidaikurichi and Papanasam.",
+      "AC compressor, PCB, fan motor, capacitor and other AC spare parts available in Papanasam, Ambasamudram and Kallidaikurichi.",
   },
   "/fridge-types": {
     title: "Refrigerator Types – Single, Double Door & More | Rehoboth",
     description:
-      "Know the types of refrigerators and the spare parts each one needs. Rehoboth Refrigeration Hub, Ambasamudram.",
+      "Know the types of refrigerators and the spare parts each one needs. Rehoboth Refrigeration Hub, Papanasam.",
   },
   "/fridge-spareparts": {
-    title: "Fridge Spare Parts in Ambasamudram & Papanasam | Rehoboth Refrigeration Hub",
+    title: "Fridge Spare Parts in Papanasam & Ambasamudram | Rehoboth Refrigeration Hub",
     description:
-      "Refrigerator compressor, thermostat, relay, door gasket and other fridge spare parts in Ambasamudram, Vikramasingapuram and Papanasam.",
+      "Refrigerator compressor, thermostat, relay, door gasket and other fridge spare parts in Papanasam, Ambasamudram and Vikramasingapuram.",
   },
   "/voltage-stabilizers": {
     title: "Voltage Stabilizers for AC & Fridge | Rehoboth Refrigeration Hub",
     description:
-      "Voltage stabilizers for AC, refrigerator and other appliances at Rehoboth Refrigeration Hub, Ambasamudram.",
+      "Voltage stabilizers for AC, refrigerator and other appliances at Rehoboth Refrigeration Hub, Papanasam.",
   },
   "/cooling-gas": {
     title: "Cooling Gas – R32, R410A, R134a, R22 | Rehoboth Refrigeration Hub",
     description:
-      "Refrigerant cooling gas for AC and refrigerators available at Rehoboth Refrigeration Hub, Ambasamudram and Papanasam.",
+      "Refrigerant cooling gas for AC and refrigerators available at Rehoboth Refrigeration Hub, Papanasam and Papanasam.",
   },
   "/compressoroil-types": {
     title: "Compressor Oil for AC & Fridge | Rehoboth Refrigeration Hub",
     description:
-      "Compressor oil types for AC and refrigeration compressors at Rehoboth Refrigeration Hub, Ambasamudram.",
+      "Compressor oil types for AC and refrigeration compressors at Rehoboth Refrigeration Hub, Papanasam.",
   },
   "/accessories-tools": {
     title: "Refrigeration Tools & Accessories | Rehoboth Refrigeration Hub",
     description:
-      "Tools and accessories for AC and refrigerator service at Rehoboth Refrigeration Hub, Ambasamudram and Papanasam.",
+      "Tools and accessories for AC and refrigerator service at Rehoboth Refrigeration Hub, Papanasam and Papanasam.",
   },
   "/wm-types": {
     title: "Washing Machine Types – Top Load & Front Load | Rehoboth",
     description:
-      "Know the types of washing machines and their spare parts. Rehoboth Refrigeration Hub, Ambasamudram.",
+      "Know the types of washing machines and their spare parts. Rehoboth Refrigeration Hub, Papanasam.",
   },
   "/wm-spareparts": {
     title:
-      "Washing Machine Spare Parts in Ambasamudram & Papanasam | Rehoboth",
+      "Washing Machine Spare Parts in Papanasam & Ambasamudram | Rehoboth",
     description:
-      "Washing machine motor, timer, drum, pulsator and other spare parts in Ambasamudram, Kallidaikurichi and Papanasam.",
+      "Washing machine motor, timer, drum, pulsator and other spare parts in Papanasam, Ambasamudram and Kallidaikurichi.",
   },
   "/ro-spareparts": {
     title: "RO Water Purifier Spare Parts | Rehoboth Refrigeration Hub",
     description:
-      "RO membrane, pump, SMPS adaptor, filters and other RO water purifier spare parts at Rehoboth Refrigeration Hub, Ambasamudram.",
+      "RO membrane, pump, SMPS adaptor, filters and other RO water purifier spare parts at Rehoboth Refrigeration Hub, Papanasam.",
   },
 };
 
