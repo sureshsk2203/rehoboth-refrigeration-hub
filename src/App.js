@@ -20,7 +20,6 @@ import WashingMachineTypes from "./components/Washingmachine_types";
 import WashingMachineSpareparts from "./components/Washingmachine_spareparts";
 import RoSpareparts from "./components/RO_spareparts";
 import Service from "./components/Service";
-import AreasWeServe from "./components/AreasWeServe";
 import Seo from "./components/Seo";
 
 // Title + description for every page (keep title under ~65 chars where possible,
@@ -51,11 +50,6 @@ const PAGES = {
     title: "Services | Rehoboth Refrigeration Hub, Papanasam",
     description:
       "Refrigeration and appliance related services from Rehoboth Refrigeration Hub for customers in Papanasam, Ambasamudram and nearby villages.",
-  },
-  "/areas-we-serve": {
-    title: "Appliance Spare Parts – Papanasam, Ambai, Sivanathipuram, VK Puram | Rehoboth",
-    description:
-      "AC, fridge, washing machine & RO spare parts for Papanasam, Sivanathipuram, Ambasamudram (Ambai), Vikramasingapuram (VK Puram) and Kallidaikurichi.",
   },
   "/ac-types": {
     title: "AC Types – Split, Window & Cassette AC | Rehoboth Refrigeration Hub",
@@ -160,7 +154,6 @@ function App() {
         <Route path="/categories" element={<Page path="/categories"><Categories /></Page>} />
         <Route path="/contact" element={<Page path="/contact"><Contact /></Page>} />
         <Route path="/service" element={<Page path="/service"><Service /></Page>} />
-        <Route path="/areas-we-serve" element={<Page path="/areas-we-serve"><AreasWeServe /></Page>} />
 
         <Route path="/ac-types" element={<Page path="/ac-types"><AcTypes /></Page>} />
         <Route path="/ac-spareparts" element={<Page path="/ac-spareparts"><AcSparepart /></Page>} />
