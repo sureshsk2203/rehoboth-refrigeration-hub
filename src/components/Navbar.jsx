@@ -138,6 +138,18 @@ export default function Navbar() {
           </NavLink>
         </li>
 
+        {/* NEW: internal link to the local SEO page */}
+        <li>
+          <NavLink
+            to="/areas-we-serve"
+            title="Areas We Serve"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={() => setMenuOpen(false)}
+          >
+            Areas
+          </NavLink>
+        </li>
+
         <li>
           <NavLink
             to="/contact"
